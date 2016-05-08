@@ -33,10 +33,12 @@ endif()
 set(proj ${SUPERBUILD_TOPLEVEL_PROJECT})
 set(${proj}_DEPENDS ITKUltrasound)
 
+set(EXTERNAL_PROJECT_ADDITIONAL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/SuperBuild")
 ExternalProject_Include_Dependencies(${proj}
   PROJECT_VAR proj
   SUPERBUILD_VAR ${EXTENSION_NAME}_SUPERBUILD
   )
+unset(EXTERNAL_PROJECT_ADDITIONAL_DIR)
 
 ExternalProject_Add(${proj}
   ${${proj}_EP_ARGS}
